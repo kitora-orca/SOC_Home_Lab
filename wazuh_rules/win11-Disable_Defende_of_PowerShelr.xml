@@ -1,0 +1,15 @@
+<group name="windows,sysmon,defender,">  
+  
+  <rule id="100002" level="16">
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.image" type="pcre2">(?i)\\(powershell|pwsh)\.exe$</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)Set-MpPreference</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)-DisableRealtimeMonitoring</field>
+    <description>windows defender real-time protection modification via powershell</description>
+    <mitre>
+      <id>T1685</id>
+    </mitre>
+    <group>defense_evasion,defender_modification,</group>
+  </rule>
+
+</group>

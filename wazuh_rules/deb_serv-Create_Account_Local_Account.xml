@@ -1,0 +1,13 @@
+<group name="orca-rule,linux,sudo,account_creation,">
+
+  <rule id="100001" level="8">
+    <if_sid>5402,5403</if_sid>
+    <field name="command" type="pcre2">^/usr/sbin/useradd(\s|$)</field>
+    <description>linux: local user account creation via sudo;)</description>
+    <mitre>
+      <id>T1136.001</id>
+    </mitre>
+    <group>account_creation,persistence,</group>
+  </rule>
+
+</group>

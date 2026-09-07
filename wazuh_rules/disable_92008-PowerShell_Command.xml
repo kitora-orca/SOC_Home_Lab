@@ -1,0 +1,7 @@
+<group name="windows,sysmon,">
+  
+  <rule id="92008" level="0" overwrite="yes">
+    <description>Temporarily disabled built-in rule 92008 for lab testing</description>
+  </rule>
+
+</group>

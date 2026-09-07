@@ -1,0 +1,16 @@
+<group name="windows,sysmon,powershell,">
+
+  <rule id="100003" level="13">
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.image" type="pcre2">(?i)\\(powershell|pwsh)\.exe$</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)(?:^|\s)-(?:e|en|enc|enco|encod|encode|encodedcommand)(?:\s|$)</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)(?:^|\s)-NoProfile(?:\s|$)</field>
+    <field name="win.eventdata.commandLine" type="pcre2">(?i)(?:^|\s)-WindowStyle\s+Hidden(?:\s|$)</field>
+    <description>Suspicious hidden PowerShell execution with encoded command</description>
+    <mitre>
+      <id>T1059.001 - Command and Scripting Interpreter: PowerShell, T1027.010 - Obfuscated Files or Information: Command Obfuscation</id>
+    </mitre>
+    <group>execution,powershell,obfuscated_command,</group>
+  </rule>
+
+</group>

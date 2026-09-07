@@ -1,0 +1,10 @@
+<Sysmon schemaversion="4.91">
+<EventFiltering>
+<RuleGroup name="PowerShell Process Creation" groupRelation="or">
+<ProcessCreate onmatch="include">
+<Image condition="end with">powershell.exe</Image>
+<Image condition="end with">pwsh.exe</Image>
+</ProcessCreate>
+</RuleGroup>
+</EventFiltering>
+</Sysmon>
